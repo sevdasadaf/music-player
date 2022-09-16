@@ -1,3 +1,5 @@
+
+
 const title = document.getElementById('title');
 const artist = document.getElementById ('artist');
 const music = document.querySelector('audio');
@@ -81,10 +83,10 @@ function next_song () {
 
 function update_progress_bar(e) {
      if(is_playing){
-        const {duration, current_time} = e.srcElement
+        const {duration, currentTime} = e.srcElement
         
         
-        const progress_percent = (current_time/duration)*100
+        const progress_percent = (currentTime/duration)*100
         progress.style.width = `${progress_percent}%`
 
         //calculate and display for duration
@@ -100,8 +102,8 @@ function update_progress_bar(e) {
             duration_el.textContent = `${duration_minutes}:${duration_seconds}`
         }
 
-        const current_minutes = Math.floor(current_time/60)
-        let current_seconds = Math.floor(current_time%60)
+        const current_minutes = Math.floor(currentTime/60)
+        let current_seconds = Math.floor(currentTime%60)
 
         if(current_seconds<10) {
             current_seconds = `0${current_seconds}`
@@ -111,14 +113,12 @@ function update_progress_bar(e) {
         }
 }
 
-
-   function set_progress_bar (e) {
+ function set_progress_bar (e) {
     const width = this.clientWidth
     const clickX = e.offsetX
-    const {duration} = music
-    music.current_time = (clickX/width)*duration
-
-   }
+    const {duration} =music
+    music.currentTime = (clickX/width)*duration
+ }
    
 prev_btn.addEventListener('click',prev_song)
 next_btn.addEventListener('click', next_song );

@@ -126,5 +126,7 @@ body {
     }
   }
   .artist-image {
-    animation: 40s swing infinite;
+    animation: 20s swing  linear infinite;
+   
   }
+ 
